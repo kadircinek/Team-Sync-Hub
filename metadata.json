@@ -1,0 +1,5 @@
+{
+  "name": "Buteo Hub",
+  "description": "An internal communication application for teams to collaborate on topics, chat, and manage tasks effectively. Features AI-powered conversation summaries to help members catch up quickly.",
+  "requestFramePermissions": []
+}
