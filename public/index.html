@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team-Sync-Hub - AI Team Collaboration Platform</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app" class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1>🚀 Team-Sync-Hub</h1>
+                <p class="subtitle">Powered by Google Gemini AI</p>
+            </div>
+            <div class="status-indicator">
+                <span class="status-dot"></span>
+                <span class="status-text">Connected</span>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="container">
+                <!-- Chat Section -->
+                <section class="chat-section">
+                    <h2>💬 Team Assistant Chat</h2>
+                    <div class="chat-box">
+                        <div class="chat-messages" id="chatMessages">
+                            <div class="message assistant-message">
+                                <p>Hi! I'm your Team Synchronization Assistant. How can I help you today?</p>
+                            </div>
+                        </div>
+                        <div class="chat-input-container">
+                            <textarea 
+                                id="userInput" 
+                                placeholder="Ask me anything about team collaboration, meetings, tasks..." 
+                                rows="3"
+                            ></textarea>
+                            <button onclick="sendMessage()" class="send-btn">Send</button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Features Grid -->
+                <section class="features-section">
+                    <h2>✨ Features</h2>
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <h3>📝 Summarize</h3>
+                            <p>Convert long texts into concise summaries</p>
+                            <button onclick="openSummarizer()">Open</button>
+                        </div>
+                        <div class="feature-card">
+                            <h3>📊 Analyze</h3>
+                            <p>Analyze team data and get insights</p>
+                            <button onclick="openAnalyzer()">Open</button>
+                        </div>
+                        <div class="feature-card">
+                            <h3>📅 Meetings</h3>
+                            <p>Manage and track team meetings</p>
+                            <button onclick="showNotification('Coming Soon')">Coming Soon</button>
+                        </div>
+                        <div class="feature-card">
+                            <h3>✓ Tasks</h3>
+                            <p>Create and track team tasks</p>
+                            <button onclick="showNotification('Coming Soon')">Coming Soon</button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Summarizer Modal -->
+                <div id="summarizerModal" class="modal hidden">
+                    <div class="modal-content">
+                        <span class="close-btn" onclick="closeSummarizer()">&times;</span>
+                        <h2>📝 Text Summarizer</h2>
+                        <textarea 
+                            id="textToSummarize" 
+                            placeholder="Paste your text here..." 
+                            rows="6"
+                        ></textarea>
+                        <button onclick="summarizeText()" class="action-btn">Summarize</button>
+                        <div id="summaryResult" class="result-container hidden">
+                            <h3>Summary:</h3>
+                            <p id="summaryText"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Analyzer Modal -->
+                <div id="analyzerModal" class="modal hidden">
+                    <div class="modal-content">
+                        <span class="close-btn" onclick="closeAnalyzer()">&times;</span>
+                        <h2>📊 Team Data Analyzer</h2>
+                        <textarea 
+                            id="dataToAnalyze" 
+                            placeholder="Paste team data (JSON format)..." 
+                            rows="6"
+                        ></textarea>
+                        <button onclick="analyzeData()" class="action-btn">Analyze</button>
+                        <div id="analysisResult" class="result-container hidden">
+                            <h3>Analysis:</h3>
+                            <p id="analysisText"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2025 Team-Sync-Hub. Powered by Google Gemini AI.</p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
