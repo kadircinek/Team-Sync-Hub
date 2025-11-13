@@ -1,21 +1,56 @@
 import dotenv from 'dotenv';
-import { GoogleGenerativeAI } from '@google/generative-ai';
 
 dotenv.config();
 
+console.log('🚀 Team-Sync-Hub initialized with Google Gemini AI');
+console.log('-------------------------------------------');
+
 const apiKey = process.env.GOOGLE_API_KEY;
 
-if (!apiKey) {
-  console.error('Error: GOOGLE_API_KEY environment variable is not set.');
-  console.error('Please create a .env file with GOOGLE_API_KEY=your_key');
-  process.exit(1);
-}
-
-const client = new GoogleGenerativeAI(apiKey);
-
-async function main() {
-  console.log('🚀 Team-Sync-Hub initialized with Google Gemini AI');
+if (!apiKey || apiKey === 'your_api_key_here') {
+  console.log('\n⚠️  Demo Mode (No API Key)');
   console.log('-------------------------------------------');
+  console.log('API Key not configured. Running in demo mode.\n');
+
+  // Mock demo responses
+  const demoChat = async () => {
+    console.log('📝 Demo Prompt: Introduce yourself as a team collaboration assistant\n');
+    
+    // Simulate Gemini response
+    const mockResponse = `Hello! I'm Team-Sync-Hub's AI Assistant, powered by Google Gemini.
+
+I'm designed to help teams:
+✓ Synchronize work and stay aligned on goals
+✓ Summarize discussions and extract key insights  
+✓ Analyze team dynamics and collaboration patterns
+✓ Generate summaries of meetings and documents
+✓ Provide intelligent suggestions for team processes
+
+My capabilities include:
+- Real-time team data analysis
+- Meeting summarization and key point extraction
+- Collaboration metrics and team health assessment
+- Smart recommendations for process improvement
+
+To use my full capabilities, please add your Google API Key to the .env file:
+1. Get your key from: https://aistudio.google.com/app/apikey
+2. Add it to .env: GOOGLE_API_KEY=your_key_here
+3. Restart the application
+
+For development, I can run in this demo mode to showcase features!`;
+
+    console.log('✨ Demo Response:');
+    console.log('-------------------------------------------');
+    console.log(mockResponse);
+    console.log('-------------------------------------------\n');
+  };
+
+  await demoChat();
+} else {
+  // Real Gemini mode
+  const { GoogleGenerativeAI } = await import('@google/generative-ai');
+
+  const client = new GoogleGenerativeAI(apiKey);
 
   try {
     const model = client.getGenerativeModel({ model: 'gemini-pro' });
@@ -39,5 +74,3 @@ async function main() {
     process.exit(1);
   }
 }
-
-main();
