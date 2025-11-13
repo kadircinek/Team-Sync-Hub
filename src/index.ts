@@ -49,11 +49,12 @@ For development, I can run in this demo mode to showcase features!`;
 } else {
   // Real Gemini mode
   const { GoogleGenerativeAI } = await import('@google/generative-ai');
+  const { config } = await import('./config');
 
   const client = new GoogleGenerativeAI(apiKey);
 
   try {
-    const model = client.getGenerativeModel({ model: 'gemini-pro' });
+    const model = client.getGenerativeModel({ model: config.googleApi.model });
 
     const prompt = `You are a team synchronization assistant. Help teams stay aligned and productive. 
     Introduce yourself and explain your capabilities for team collaboration.`;

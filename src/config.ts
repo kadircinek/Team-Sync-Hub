@@ -5,7 +5,7 @@ dotenv.config();
 export const config = {
   googleApi: {
     apiKey: process.env.GOOGLE_API_KEY || '',
-    model: 'gemini-pro',
+    model: 'gemini-2.0-flash',
   },
   app: {
     environment: process.env.NODE_ENV || 'development',
